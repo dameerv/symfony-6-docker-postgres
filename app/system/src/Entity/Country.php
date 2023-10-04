@@ -19,6 +19,9 @@ class Country
     #[ORM\OneToOne(mappedBy: 'country', cascade: ['persist', 'remove'])]
     private ?Tax $tax = null;
 
+    #[ORM\Column(length: 2)]
+    private ?string $code = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -49,6 +52,18 @@ class Country
         }
 
         $this->tax = $tax;
+
+        return $this;
+    }
+
+    public function getCode(): ?string
+    {
+        return $this->code;
+    }
+
+    public function setCode(string $code): static
+    {
+        $this->code = $code;
 
         return $this;
     }

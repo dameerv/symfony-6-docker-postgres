@@ -14,7 +14,7 @@ class Tax
     private ?int $id = null;
 
     #[ORM\Column(length: 15)]
-    private ?string $aщкformat = null;
+    private ?string $format = null;
 
     #[ORM\OneToOne(inversedBy: 'tax', cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
@@ -25,14 +25,14 @@ class Tax
         return $this->id;
     }
 
-    public function getaщкformat(): ?string
+    public function getFormat(): ?string
     {
-        return $this->aщкformat;
+        return $this->format;
     }
 
-    public function setaщкformat(string $aщкformat): static
+    public function setFormat(string $format): static
     {
-        $this->aщкformat = $aщкformat;
+        $this->format = $format;
 
         return $this;
     }
