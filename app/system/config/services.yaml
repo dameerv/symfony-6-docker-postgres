@@ -22,3 +22,20 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+    discount.calculator.fix:
+        class: App\Discount\FixDiscountCalculator
+
+    discount.calculator.percent:
+        class: App\Discount\PercentDiscountCalculator
+
+    App\Discount\DiscountManagerInterface:
+        class: App\Discount\DiscountManager
+        arguments:
+            $discountCalculators:
+                - '@discount.calculator.fix'
+                - '@discount.calculator.percent'
+
+    doctrine.orm.validator.unique:
+        class: App\Validator\TaxFormatValidator
+        tags:
+            - { name: validator.constraint_validator }

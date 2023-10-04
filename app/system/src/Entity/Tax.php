@@ -13,26 +13,29 @@ class Tax
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 15)]
-    private ?string $format = null;
+    #[ORM\Column]
+    private ?int $value = null;
 
-    #[ORM\OneToOne(inversedBy: 'tax', cascade: ['persist', 'remove'])]
+    #[ORM\ManyToOne(inversedBy: 'taxes')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Country $country = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $taxNumber = null;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getFormat(): ?string
+    public function getValue(): ?int
     {
-        return $this->format;
+        return $this->value;
     }
 
-    public function setFormat(string $format): static
+    public function setValue(int $value): static
     {
-        $this->format = $format;
+        $this->value = $value;
 
         return $this;
     }
@@ -42,10 +45,20 @@ class Tax
         return $this->country;
     }
 
-    public function setCountry(Country $country): static
+    public function setCountry(?Country $country): static
     {
         $this->country = $country;
 
         return $this;
+    }
+
+    public function getTaxNumber(): ?string
+    {
+        return $this->taxNumber;
+    }
+
+    public function setTaxNumber(?string $taxNumber): void
+    {
+        $this->taxNumber = $taxNumber;
     }
 }
