@@ -3,7 +3,7 @@ FROM php:8.2-fpm
 RUN apt update \
     && apt-get install -y libpq-dev wget unzip \
     && apt install -y zlib1g-dev g++ libicu-dev zip libzip-dev zip  \
-    && docker-php-ext-install intl opcache pdo pdo_pgsql  pdo_mysql \
+    && docker-php-ext-install intl opcache pdo pdo_pgsql \
     && pecl install apcu \
     && docker-php-ext-enable apcu \
     && docker-php-ext-configure zip \
@@ -16,7 +16,7 @@ RUN pecl install xdebug \
 
 RUN apt-get install -y libcurl4-openssl-dev pkg-config libssl-dev
 
-WORKDIR /var/www/app
+WORKDIR /var/www/
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
@@ -25,3 +25,5 @@ RUN curl https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
 RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 
 RUN apt-get update && apt-get install -y nodejs yarn postgresql-client
+
+user www-data
