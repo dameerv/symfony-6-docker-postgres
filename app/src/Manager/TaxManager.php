@@ -22,7 +22,6 @@ class TaxManager
      */
     public function getTaxByCountryCode(string $countryCode): ?Tax
     {
-
         return $this->taxRepository->findByCountryCode($countryCode);
     }
 }

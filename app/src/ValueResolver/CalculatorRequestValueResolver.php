@@ -3,7 +3,6 @@
 namespace App\ValueResolver;
 
 use App\Dto\PriceRequestInterface;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Controller\ValueResolverInterface;
 use Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadata;
@@ -30,7 +29,7 @@ readonly class CalculatorRequestValueResolver implements ValueResolverInterface
         return [
             $this->serializer->deserialize($content, $argumentType, 'json', [
                 AbstractNormalizer::ALLOW_EXTRA_ATTRIBUTES => false,
-            ])
+            ]),
         ];
     }
 }

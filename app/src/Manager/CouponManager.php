@@ -18,9 +18,9 @@ class CouponManager
 
     public function getByCode(?string $couponCode): ?Coupon
     {
-        return $couponCode?
+        return $couponCode ?
             $this->taxRepository->findOneBy([
-            'code' => $couponCode
-        ]): null;
+            'code' => $couponCode,
+        ]) : null;
     }
 }

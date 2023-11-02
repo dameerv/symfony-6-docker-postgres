@@ -28,10 +28,10 @@ class TaxNumberValidator extends ConstraintValidator
         $quantity = $this->entityManager
             ->getRepository(Tax::class)
             ->count([
-                'taxNumber' => $value
+                'taxNumber' => $value,
             ]);
 
-        if ($quantity !== 0) {
+        if (0 !== $quantity) {
             return;
         }
 

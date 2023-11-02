@@ -37,3 +37,7 @@ curl --location 'http://127.0.0.1:80/purchase' \
 }'
 ```
 
+### run cs-fixer
+```
+tools/php-cs-fixer/vendor/bin/php-cs-fixer fix src --allow-risky=yes
+```

@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Controller;
 
 use App\Dto\PriceRequest;
@@ -17,10 +16,9 @@ class PriceController extends BaseController
     #[Route('/calculate-price', name: 'app_calculate_price')]
     public function __invoke(PriceRequest $request): JsonResponse
     {
-
         return $this->json([
             'success' => true,
-            'data'    => $this->getPriceResponse($request)
+            'data' => $this->getPriceResponse($request),
         ]);
     }
 }

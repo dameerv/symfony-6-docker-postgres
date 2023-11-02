@@ -14,9 +14,7 @@
 /phpunit.xml
 ###< symfony/phpunit-bridge ###
 
-###> phpunit/phpunit ###
-/phpunit.xml
-.phpunit.result.cache
 ###< phpunit/phpunit ###
 /app/.composer/*
 .bash_history
+.php-cs-fixer.cache

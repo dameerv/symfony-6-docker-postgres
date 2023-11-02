@@ -25,7 +25,7 @@ readonly class ControllerArgumentsValidationSubscriber implements EventSubscribe
                 if (count($violations)) {
                     $jsonResponse = new JsonResponse([
                         'success' => false,
-                        'messages' => $this->createMessages($violations)
+                        'messages' => $this->createMessages($violations),
                     ]);
 
                     $jsonResponse->send();

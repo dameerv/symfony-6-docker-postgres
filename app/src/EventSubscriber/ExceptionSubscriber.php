@@ -19,9 +19,10 @@ readonly class ExceptionSubscriber implements EventSubscriberInterface
     {
         $exception = $event->getThrowable();
         $this->logger->error($exception);
-        $jsonResponse = new JsonResponse([
+        $jsonResponse = new JsonResponse(
+            [
             'success' => false,
-            'message' => $exception->getMessage()
+            'message' => $exception->getMessage(),
         ],
             Response::HTTP_BAD_REQUEST
         );

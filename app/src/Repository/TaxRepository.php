@@ -2,7 +2,6 @@
 
 namespace App\Repository;
 
-use App\Entity\Country;
 use App\Entity\Tax;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\NonUniqueResultException;
@@ -29,7 +28,7 @@ class TaxRepository extends ServiceEntityRepository
     public function findByCountryCode(string $countryCode): ?Tax
     {
         return $this->createQueryBuilder('t')
-            ->leftJoin('t.country', 'c' )
+            ->leftJoin('t.country', 'c')
             ->andWhere('c.code = :countryCode')
             ->setParameter('countryCode', $countryCode)
             ->getQuery()

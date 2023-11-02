@@ -33,7 +33,7 @@ class PurchaseController extends BaseController
 
         return $this->json([
             'success' => true,
-            'data' => $priceResponseData
+            'data' => $priceResponseData,
         ]);
     }
 }

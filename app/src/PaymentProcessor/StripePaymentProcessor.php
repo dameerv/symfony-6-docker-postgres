@@ -13,7 +13,7 @@ class StripePaymentProcessor extends BaseProcessor implements PaymentProcessorIn
 
     public function makePayment(float $price): bool
     {
-        if($this->processPayment($price)) {
+        if ($this->processPayment($price)) {
             $this->logger->info('Made stripe payment. Bla-bla-bla');
 
             return true;

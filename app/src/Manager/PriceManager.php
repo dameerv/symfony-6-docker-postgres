@@ -15,14 +15,14 @@ readonly class PriceManager
     ) {
     }
 
-    public function getPriceResponse(Product $product, Tax $tax, ?Coupon $coupon = null): PriceResponseData
+    public function getPriceResponse(Product $product, Tax $tax, Coupon $coupon = null): PriceResponseData
     {
         $priceWithDiscount = $coupon ? $this->discountManager->calculatePriceWithDiscount(
             $product->getPrice(),
             $coupon
         ) : $product->getPrice();
 
-        $discount = $coupon ? $product->getPrice() - $priceWithDiscount: null;
+        $discount = $coupon ? $product->getPrice() - $priceWithDiscount : null;
 
         $taxValue = $priceWithDiscount / 100 * $tax->getValue();
 

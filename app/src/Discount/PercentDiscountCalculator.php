@@ -20,6 +20,7 @@ readonly class PercentDiscountCalculator implements DiscountCalculatorInterface
 
             throw new \Exception($message);
         }
+
         return $price - ($price / 100 * $discount);
     }
 

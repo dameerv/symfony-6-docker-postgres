@@ -11,7 +11,7 @@ class DiscountManager implements DiscountManagerInterface
      * @param DiscountCalculatorInterface[] $discountCalculators
      */
     public function __construct(
-        private readonly array  $discountCalculators,
+        private readonly array $discountCalculators,
         private LoggerInterface $logger,
     ) {
     }

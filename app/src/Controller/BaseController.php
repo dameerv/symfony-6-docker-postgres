@@ -44,7 +44,7 @@ abstract class BaseController extends AbstractController
     protected function getProduct(int $productId): Product
     {
         $product = $this->productManager->getProductById($productId);
-        if ($product === null) {
+        if (null === $product) {
             throw new ProductNotFoundException($productId);
         }
 
